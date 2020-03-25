@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script src="{% static 'scripts/price.js' %}"></script>
+
+<div class="row">
+	<div class="col-lg-12 text-center">
+		<h1 class="mt-5">CS:GO market analytics!</h1>
+		<p class="lead">Welcome! On this site, you will find:</p>
+		<ul class="list-unstyled">
+			<li>Price evolution</li>
+			<li>Price notifications</li>
+		</ul>
+		<input id="priceButton" type="button" name="" value="Get price">
+		<div id="priceResult">
+
+		</div>
+	</div>
+</div>
+{% endblock %}
