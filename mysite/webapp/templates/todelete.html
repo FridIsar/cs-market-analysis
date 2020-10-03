@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+
+</head>
+
+<body>
+	<h1>TESTING</h1>
+	<button id="buttona" type="button" name="button">404Log me</button>
+	<button id="button" type="button" name="button">404Click me</button>
+	<button id="click" type="button" name="button">Click me</button>
+	<button id="log" type="button" name="button">Log me</button>
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js">
+</script>
+<script type="text/javascript">
+$(document).ready(function()	{
+	console.log("doc is ready")
+	function setupFAjax(tok)	{
+		$.ajaxSetup({
+		headers: {
+				"Authorization": "Token "+tok
+		}
+});
+	}
+	$("#click").click(function(){
+	$.get("http://localhost:8000/users/1/", function(data, status){
+		console.log("requesting...");
+		console.log(data);
+	});
+});
+$("#log").click(function(){
+	$.post("http://localhost:8000/api-auth/", { username: "fridiboi", password: "sdfsdfsdf" },
+	function(data, status){
+		console.log(data.token);
+		setupFAjax(data.token);
+	});
+});
+// 	$.ajaxSetup({
+// error: function(xhr, status, error) {
+// console.log("An AJAX error occured: " + status + "\nError: " + error + "\nError detail: " + xhr.responseText);
+//      }
+//     });
+// 	$("#buttona").click(function(){
+// 		$.ajax({
+// 		url: 'http://localhost:8000/',
+// 		type: 'POST',
+// 		data: {username:'fridi', password:'sdfsdfsdf'},
+// 		success: function(data){
+// 				console.log(data);
+// 		}
+// });
+// 	});
+// 	$("#button").click(function(){
+// 		$.ajax({
+//     url: 'http://localhost:8000/users/1',
+//     type: 'GET',
+//     success: function(data){
+//         console.log(data);
+//     }
+// });
+// 	});
+
+
+})
+</script>
+</body>
+</html>

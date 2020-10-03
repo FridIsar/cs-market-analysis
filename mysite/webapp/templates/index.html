@@ -17,4 +17,23 @@
 		</div>
 	</div>
 </div>
+
+<table class="table table-striped table-dark">
+	<thead>
+		<tr>
+			<th scope="col">Name</th>
+			<th scope="col">Image</th>
+			<th scope="col">Price</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for item in items %}
+		<tr>
+			<th scope="row"><a href="https://steamcommunity.com/market/priceoverview/?currency=3&appid=730&market_hash_name={{ item.hash_name }}">{{ item.name }}</a></th>
+			<td><img src="https://steamcommunity-a.akamaihd.net/economy/image/{{ item.asset_description.icon_url }}/62fx62f" alt=""></td>
+			<td>{{ item.sell_price_text }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
 {% endblock %}
